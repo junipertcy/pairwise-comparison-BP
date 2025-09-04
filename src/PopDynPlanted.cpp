@@ -70,7 +70,6 @@ void iterate_messages(std::vector<message_X> &messages, int L,
     new_message.positives(10e-10);
     new_message.normalize();
     message_X m = {new_message, x};
-    #pragma omp write
     messages[i] = m;
   }
 }
@@ -140,7 +139,6 @@ std::vector<message_X> random_marginals( std::vector<message_X> const &messages,
     cheby::Chebyshev new_message(cheby::Chebyshev_coefs_from_values(new_values));
     new_message.positives(0.0);
     new_message.normalize();
-    #pragma omp write
     ans[s] = {new_message, x};
   }
 

@@ -93,7 +93,7 @@ namespace cheby {
       ArrayXd c;  // coefficients
       ArrayXd f;  // function value at nodes
     public:
-      Chebyshev(int);
+      Chebyshev(int n=4);
       Chebyshev(ArrayXd const &, int);
       Chebyshev(ArrayXd const &, ArrayXd const &);
       floatT value(floatT x) {return Chebyshev_value(x, c);};
@@ -112,7 +112,7 @@ namespace cheby {
       void operator/=(floatT);
   };
     
-  Chebyshev::Chebyshev(int n=4) {
+  Chebyshev::Chebyshev(int n) {
     c.resize(n,0.0);
     c[0] = 1.0;
     f.resize(n,1.0);
